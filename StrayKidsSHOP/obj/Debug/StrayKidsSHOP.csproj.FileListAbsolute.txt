@@ -1,0 +1,11 @@
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\bin\Debug\StrayKidsSHOP.exe.config
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\bin\Debug\StrayKidsSHOP.exe
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\bin\Debug\StrayKidsSHOP.pdb
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.csproj.AssemblyReference.cache
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.csproj.SuggestedBindingRedirects.cache
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.Properties.Resources.resources
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.skzShopForm.resources
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.csproj.GenerateResource.cache
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.csproj.CoreCompileInputs.cache
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.exe
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.pdb
