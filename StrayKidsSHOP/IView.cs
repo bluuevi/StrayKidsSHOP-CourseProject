@@ -24,6 +24,8 @@ namespace StrayKidsSHOP
 
          void LoginOrSignUpSuccesful(string name, string money, string points);
 
+         void Pay(string money, string points);
+
 
 
 

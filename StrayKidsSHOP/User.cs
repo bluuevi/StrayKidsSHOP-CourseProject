@@ -89,12 +89,17 @@ namespace StrayKidsSHOP
                 string[] mas = File.ReadAllText("Users\\"+login + ".txt").Split(' ');
 
                 user = new User(mas[2], mas[0], mas[1]);
-                user.Money = Convert.ToInt32(mas[3]);
-                user.Points = Convert.ToInt32(mas[4]);
+                user.Money = Convert.ToDecimal(mas[3]);
+                user.Points = Convert.ToDecimal(mas[4]);
                 return user;
             }
             
             return null;
+        }
+        internal void Pay()
+        {
+            string s = this.Login + " " + this.Password + " " + this.Name + " " + user.Money + " " + user.Points;
+            File.WriteAllText("Users\\" + user.Login + ".txt", s);
         }
     }
 }

@@ -29,6 +29,9 @@ namespace StrayKidsSHOP
 
         bool SignUpUser(string name, string login, string password);
 
+        bool Pay(bool useBonuses);
+
+
 
 
 

@@ -417,7 +417,63 @@ namespace StrayKidsSHOP
         }
 
 
+        public bool Pay(bool useBonuses)
+        {
+            if (!useBonuses)
+                if (shop.Cart.TotalAmount > shop.User.Money)
+                {
+                    MessageBox.Show("You haven't enough money :(");
+                    return false;
+                }
+                else
+                {
+                    shop.User.Money -= shop.Cart.TotalAmount;
+                    shop.User.Points+=shop.Cart.TotalAmount/100;
+                    view.Pay(shop.User.Money.ToString(), shop.User.Points.ToString());
+                    shop.User.Pay();
+                    shop.Cart.CartList.Clear();
 
+                    return true;
+                }
+
+
+
+            if (useBonuses)
+                if (shop.User.Points > shop.Cart.TotalAmount)
+                {
+                    shop.User.Points -= shop.Cart.TotalAmount;
+                    shop.User.Points += shop.Cart.TotalAmount / 100;
+                    view.Pay(shop.User.Money.ToString(), shop.User.Points.ToString());
+                    shop.User.Pay();
+                    shop.Cart.CartList.Clear();
+
+                    return true;
+                }
+                else
+                {
+                    if ((shop.User.Money - shop.User.Points) >= shop.Cart.TotalAmount)
+                    {
+                        shop.User.Money -= (shop.Cart.TotalAmount - shop.User.Points);
+                        shop.User.Points = 0;
+                        shop.User.Points += shop.Cart.TotalAmount / 100;
+                        view.Pay(shop.User.Money.ToString(), shop.User.Points.ToString());
+                        shop.User.Pay();
+                        shop.Cart.CartList.Clear();
+
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("You haven't enough points :(");
+                        return false;
+                    }
+
+                }
+            else return false;
+
+            
+
+        }
 
 
 

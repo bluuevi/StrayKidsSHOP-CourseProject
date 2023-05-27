@@ -90,6 +90,8 @@ namespace StrayKidsSHOP
             panelLogin.Visible = false;
             panelSignup.Visible = false;
             panelPay.Visible = true;
+            pictureBoxPhotos.Visible=true;
+            pictureBoxPhotos.Image = Image.FromFile("2.jpg");
 
             labelWelcome.Text += name;
             labelMoney.Text = money;
@@ -104,6 +106,7 @@ namespace StrayKidsSHOP
             labelTotalAmount.Text = null;
             labelMoney.Text=money;
             labelPoints.Text=points;
+            panelEmptyCart.Visible = true;
             MessageBox.Show("Your order is accepted!! \nOur manager will contact you <3");
         }
 
@@ -256,7 +259,7 @@ namespace StrayKidsSHOP
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if ((textBoxLogLogin.Text != null) && (textBoxLogPassword.Text != null))
+            if ((textBoxLogLogin.Text != "") && (textBoxLogPassword.Text != ""))
             {
 
                 if (!Presenter.LoginUser(textBoxLogLogin.Text, textBoxLogPassword.Text))
@@ -274,10 +277,8 @@ namespace StrayKidsSHOP
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
 
-            if ((textBoxSignLogin.Text != null) && (textBoxSignPassword.Text != null) && (textBoxName.Text != null))
+            if ((textBoxSignLogin.Text !="" ) && (textBoxSignPassword.Text != "") && (textBoxName.Text != ""))
             {
-
-
 
                 if (!Presenter.SignUpUser(textBoxName.Text, textBoxSignLogin.Text, textBoxSignPassword.Text))
                     MessageBox.Show("Sign up failed :(");
@@ -305,7 +306,47 @@ namespace StrayKidsSHOP
 
         private void buttonPay_Click(object sender, EventArgs e)
         {
+            Presenter.Pay(checkBoxPoints.Checked);
+        }
 
+        private void textBoxLogLogin_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxLogLogin.Text.IndexOf(' ') > -1)
+            {
+                textBoxLogLogin.Text = "";
+            }
+        }
+
+        private void textBoxLogPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxLogPassword.Text.IndexOf(' ') > -1)
+            {
+                textBoxLogPassword.Text = "";
+            }
+        }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxName.Text.IndexOf(' ') > -1)
+            {
+                textBoxName.Text = "";
+            }
+        }
+
+        private void textBoxSignLogin_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSignLogin.Text.IndexOf(' ') > -1)
+            {
+                textBoxSignLogin.Text = "";
+            }
+        }
+
+        private void textBoxSignPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSignPassword.Text.IndexOf(' ') > -1)
+            {
+                textBoxSignPassword.Text = "";
+            }
         }
     }
    
