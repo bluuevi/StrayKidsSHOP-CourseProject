@@ -63,6 +63,16 @@ namespace StrayKidsSHOP.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap skzNoCart {
+            get {
+                object obj = ResourceManager.GetObject("skzNoCart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Stray_Kids_Logo_png {
             get {
                 object obj = ResourceManager.GetObject("Stray_Kids_Logo_png", resourceCulture);

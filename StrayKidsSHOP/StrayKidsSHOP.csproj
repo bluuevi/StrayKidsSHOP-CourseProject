@@ -47,8 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cart.cs" />
+    <Compile Include="IPresenter.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemsBase.cs" />
+    <Compile Include="IView.cs" />
+    <Compile Include="Presenter.cs" />
     <Compile Include="Shop.cs" />
     <Compile Include="skzShopForm.cs">
       <SubType>Form</SubType>
@@ -88,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Stray_Kids_Logo_png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skzNoCart.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -80,7 +80,7 @@
   <Class Name="StrayKidsSHOP.skzShopForm" Collapsed="true">
     <Position X="18.25" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>kwADCACBACAAkZABSBCBgAAyAAI4AJIAAAAAAMAAICA=</HashCode>
+      <HashCode>kwADCACBACAAkZABSBCBgAAyAAI4AJIAIAAAAMAAICA=</HashCode>
       <FileName>skzShopForm.cs</FileName>
     </TypeIdentifier>
   </Class>

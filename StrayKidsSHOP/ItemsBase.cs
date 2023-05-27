@@ -14,26 +14,39 @@ namespace StrayKidsSHOP
         internal List<Lightstick> Lightsticks;
         internal List<Album> Albums;
         internal List<Card> Cards;
-        internal List<Skzoo> Skzoos;
-
+        internal List<Skzoo> SKZOO;
+        internal List<string> Categories;
         private ItemsBase()
         {
-            
+
         }
 
         public static ItemsBase GetInstance()
         {
             if (itemsBase == null)
+            {
                 itemsBase = new ItemsBase();
 
-            itemsBase.Lightsticks = itemsBase.getLightsticks();
-            itemsBase.Albums = itemsBase.getAlbums();
-            itemsBase.Cards = itemsBase.getCards();
-            itemsBase.Skzoos = itemsBase.getSkzoos();
+                itemsBase.Lightsticks = itemsBase.getLightsticks();
+                itemsBase.Albums = itemsBase.getAlbums();
+                itemsBase.Cards = itemsBase.getCards();
+                itemsBase.SKZOO = itemsBase.getSkzoos();
 
+                itemsBase.Categories = itemsBase.getCategories();
+            }
             return itemsBase;
         }
 
+
+        internal List<string> getCategories()
+        {
+            List<string> categories = new List<string>();
+            categories.Add("Lightstick");
+            categories.Add("Albums");
+            categories.Add("Cards");
+            categories.Add("SKZOO");
+            return categories;
+        }
         internal List<Lightstick> getLightsticks()
         {
             List<Lightstick> lightsticks = new List<Lightstick>();
@@ -52,28 +65,27 @@ namespace StrayKidsSHOP
         {
             List<Album> albums = new List<Album>();
 
-            albums.Add(new Album("5 STAR ★★★★★ LIMITED VER.", 3118, "Release Date: June 2, 2023" +
-                "\nContents: \nPhotobook, 1 Type / W164xH224xT10(mm) / 104 Pages \nCD, 1 Type \nPhotocard, W55xH85 / Random 2 of 24 / Same as Normal Ver. \nCartoon Postcard, 1 Type / W100xH150 / Same as Normal Ver. \nOOTD Mini Poster, W150xH210 / Random 1 of 8 / Same as Normal Ver." +
-                "\nSticker Set, W150xH100 / 2 Sheets / Same as Normal Ver. \n \nLimited Ver.only: \nSpecial Folded Poster, W600xH420 / Random 1 of 8 \nB - Cut Film Postcard, 1 Type / W100xH1540", "Albums\\5starL.jpg"));
-
-            albums.Add(new SignedAlbum(albums[0]));
-            
-
             albums.Add(new Album("5 STAR ★★★★★ VER. A", 2464, "Release Date: June 2, 2023" +
                 "\nContents: \nPhotobook, 1 Type / W164xH224xT10(mm) / 104 Pages \nCD, 1 Type \nPhotocard, W55xH85 / Random 2 of 24 \nCartoon Postcard, 1 Type / W100xH150  \nOOTD Mini Poster, W150xH210 / Random 1 of 8 " +
                 "\nSticker Set, W150xH100 / 2 Sheets", "Albums\\5starA.jpg"));
 
-            albums.Add(new SignedAlbum(albums[2]));
+            albums.Add(new SignedAlbum(albums[0]));
 
             albums.Add(new Album("5 STAR ★★★★★ VER. B", 2464, "Release Date: June 2, 2023" +
                 "\nContents: \nPhotobook, 1 Type / W164xH224xT10(mm) / 104 Pages \nCD, 1 Type \nPhotocard, W55xH85 / Random 2 of 24 \nCartoon Postcard, 1 Type / W100xH150  \nOOTD Mini Poster, W150xH210 / Random 1 of 8 " +
                 "\nSticker Set, W150xH100 / 2 Sheets", "Albums\\5starB.jpg"));
 
-            albums.Add(new SignedAlbum(albums[4]));
+            albums.Add(new SignedAlbum(albums[2]));
 
             albums.Add(new Album("5 STAR ★★★★★ VER. C", 2464, "Release Date: June 2, 2023" +
                 "\nContents: \nPhotobook, 1 Type / W164xH224xT10(mm) / 104 Pages \nCD, 1 Type \nPhotocard, W55xH85 / Random 2 of 24 \nCartoon Postcard, 1 Type / W100xH150  \nOOTD Mini Poster, W150xH210 / Random 1 of 8 " +
                 "\nSticker Set, W150xH100 / 2 Sheets", "Albums\\5starC.jpg"));
+
+            albums.Add(new SignedAlbum(albums[4]));
+
+            albums.Add(new Album("5 STAR ★★★★★ LIMITED VER.", 3118, "Release Date: June 2, 2023" +
+               "\nContents: \nPhotobook, 1 Type / W164xH224xT10(mm) / 104 Pages \nCD, 1 Type \nPhotocard, W55xH85 / Random 2 of 24 / Same as Normal Ver. \nCartoon Postcard, 1 Type / W100xH150 / Same as Normal Ver. \nOOTD Mini Poster, W150xH210 / Random 1 of 8 / Same as Normal Ver." +
+               "\nSticker Set, W150xH100 / 2 Sheets / Same as Normal Ver. \n \nLimited Ver.only: \nSpecial Folded Poster, W600xH420 / Random 1 of 8 \nB - Cut Film Postcard, 1 Type / W100xH1540", "Albums\\5starL.jpg"));
 
             albums.Add(new SignedAlbum(albums[6]));
 
@@ -105,7 +117,7 @@ namespace StrayKidsSHOP
             card = new Card("Nacific SCHOOL CONCEPT", 180, "Double-sided Lomo card \nDimensions: 5.4 * 8.6cm / 2.13 * 3.39in \nMaterial: coated paper", "Cards\\school.jpg");
             cards = create8cards(cards, card);
 
-            card = new Card("Nacific SCHOOL CONCEPT", 230, "NACIFIC 18th anniversary Official selfie photo card", "Cards\\kitchen.jpg");
+            card = new Card("Nacific TASTY KITCHEN", 230, "NACIFIC 18th anniversary Official selfie photo card", "Cards\\kitchen.jpg");
             cards = create8cards(cards, card);
 
             card = new Card("NOEASY LIMITED Cards", 340, "Official Limited cards \nSize: 54 * 86mm", "Cards\\noeasy.jpg");
@@ -132,8 +144,36 @@ namespace StrayKidsSHOP
             List<Skzoo> skzoos = new List<Skzoo>();
 
             skzoos.Add(new Skzoo("Wolf Chan", 780, "Main material: plush \nSize: about 20cm", "Skzoos\\WolfChan.jpg"));
-            skzoos.Add(new SharkSkzoo(skzoos[0]));
-            skzoos.Add(new DinosaurSkzoo(skzoos[0]));
+            skzoos.Add(new SharkSkzoo(skzoos[0], "Skzoos\\WolfChanS.jpg"));
+            skzoos.Add(new DinosaurSkzoo(skzoos[0], "Skzoos\\WolfChanD.jpg"));
+
+            skzoos.Add(new Skzoo("Leebit", 780, "Main material: plush \nSize: about 20cm", "Skzoos\\Leebit.jpg"));
+            skzoos.Add(new SharkSkzoo(skzoos[3], "Skzoos\\LeebitS.jpg"));
+            skzoos.Add(new DinosaurSkzoo(skzoos[3], "Skzoos\\LeebitD.jpg"));
+
+            skzoos.Add(new Skzoo("DWAEKKI", 780, "Main material: plush \nSize: about 20cm", "Skzoos\\DWAEKKI.jpg"));
+            skzoos.Add(new SharkSkzoo(skzoos[6], "Skzoos\\DWAEKKIS.jpg"));
+            skzoos.Add(new DinosaurSkzoo(skzoos[6], "Skzoos\\DWAEKKID.jpg"));
+
+            skzoos.Add(new Skzoo("Jiniret", 780, "Main material: plush \nSize: about 20cm", "Skzoos\\Jiniret.jpg"));
+            skzoos.Add(new SharkSkzoo(skzoos[9], "Skzoos\\JiniretS.jpg"));
+            skzoos.Add(new DinosaurSkzoo(skzoos[9], "Skzoos\\JiniretD.jpg"));
+
+            skzoos.Add(new Skzoo("HAN QUOKKA", 780, "Main material: plush \nSize: about 20cm", "Skzoos\\HANQUOKKA.jpg"));
+            skzoos.Add(new SharkSkzoo(skzoos[12], "Skzoos\\HANQUOKKAS.jpg"));
+            skzoos.Add(new DinosaurSkzoo(skzoos[12], "Skzoos\\HANQUOKKAD.jpg"));
+
+            skzoos.Add(new Skzoo("BbokAri", 780, "Main material: plush \nSize: about 20cm", "Skzoos\\BbokAri.jpg"));
+            skzoos.Add(new SharkSkzoo(skzoos[15], "Skzoos\\BbokAriS.jpg"));
+            skzoos.Add(new DinosaurSkzoo(skzoos[15], "Skzoos\\BbokAriD.jpg"));
+
+            skzoos.Add(new Skzoo("PuppyM", 780, "Main material: plush \nSize: about 20cm", "Skzoos\\PuppyM.jpg"));
+            skzoos.Add(new SharkSkzoo(skzoos[18], "Skzoos\\PuppyMS.jpg"));
+            skzoos.Add(new DinosaurSkzoo(skzoos[18], "Skzoos\\PuppyMD.jpg"));
+
+            skzoos.Add(new Skzoo("FoxI.Ny", 780, "Main material: plush \nSize: about 20cm", "Skzoos\\FoxINy.jpg"));
+            skzoos.Add(new SharkSkzoo(skzoos[21], "Skzoos\\FoxINyS.jpg"));
+            skzoos.Add(new DinosaurSkzoo(skzoos[21], "Skzoos\\FoxINyD.jpg"));
 
             return skzoos;
         }

@@ -150,21 +150,24 @@ namespace StrayKidsSHOP
 
     class SharkSkzoo : SkzooDecorator
     {
-        public SharkSkzoo(Skzoo skzoo) : base(skzoo, skzoo.Name, skzoo.Price, skzoo.Description, skzoo.PicturePath)
+        public SharkSkzoo(Skzoo skzoo, string picture) : base(skzoo, skzoo.Name, skzoo.Price, skzoo.Description, skzoo.PicturePath)
         {
             this.Clothes = "Shark";
             this.Description += "\nClothes material: plush";
             this.Price += 200;
+            this.PicturePath = picture;
         }
     }
 
     class DinosaurSkzoo : SkzooDecorator
     {
-        public DinosaurSkzoo(Skzoo skzoo) : base(skzoo, skzoo.Name, skzoo.Price, skzoo.Description, skzoo.PicturePath)
+        public DinosaurSkzoo(Skzoo skzoo, string picture) : base(skzoo, skzoo.Name, skzoo.Price, skzoo.Description, skzoo.PicturePath)
         {
             this.Clothes = "Dinosaur";
             this.Description += "\nClothes material: plush";
             this.Price += 250;
+            this.PicturePath = picture;
+
         }
     }
 

@@ -121,4 +121,7 @@
   <data name="Stray_Kids_Logo_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stray_Kids_Logo_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="skzNoCart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\skzNoCart.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

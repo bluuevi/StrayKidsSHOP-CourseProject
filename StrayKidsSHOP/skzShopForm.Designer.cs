@@ -40,14 +40,20 @@
             this.comboBoxItem = new System.Windows.Forms.ComboBox();
             this.comboCategory = new System.Windows.Forms.ComboBox();
             this.tabPageCart = new System.Windows.Forms.TabPage();
-            this.panelSignup = new System.Windows.Forms.Panel();
-            this.labelLogin = new System.Windows.Forms.Label();
-            this.buttonSignUp = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxSignPassword = new System.Windows.Forms.TextBox();
-            this.textBoxSignLogin = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.panelEmptyCart = new System.Windows.Forms.Panel();
+            this.buttonDeleteItem = new System.Windows.Forms.Button();
+            this.listBoxCart = new System.Windows.Forms.ListBox();
+            this.panelPay = new System.Windows.Forms.Panel();
+            this.checkBoxPoints = new System.Windows.Forms.CheckBox();
+            this.labelPoints = new System.Windows.Forms.Label();
+            this.labelMoney = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.labelTotalAmount = new System.Windows.Forms.Label();
+            this.labelTotalText = new System.Windows.Forms.Label();
+            this.buttonBuy = new System.Windows.Forms.Button();
             this.panelLogin = new System.Windows.Forms.Panel();
             this.label = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,28 +63,25 @@
             this.textBoxLogPassword = new System.Windows.Forms.TextBox();
             this.textBoxLogLogin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.labelTotalAmount = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.buttonBuy = new System.Windows.Forms.Button();
+            this.panelSignup = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.panelPay = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.labelMoney = new System.Windows.Forms.Label();
-            this.labelPoints = new System.Windows.Forms.Label();
-            this.checkBoxPoints = new System.Windows.Forms.CheckBox();
-            this.listBoxCart = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.labelLogin = new System.Windows.Forms.Label();
+            this.buttonSignUp = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxSignPassword = new System.Windows.Forms.TextBox();
+            this.textBoxSignLogin = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControlShopAndCart.SuspendLayout();
             this.tabPageShop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.tabPageCart.SuspendLayout();
-            this.panelSignup.SuspendLayout();
-            this.panelLogin.SuspendLayout();
+            this.panelEmptyCart.SuspendLayout();
             this.panelPay.SuspendLayout();
+            this.panelLogin.SuspendLayout();
+            this.panelSignup.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonCLOSE
@@ -139,7 +142,7 @@
             // 
             this.labelPrice.AutoSize = true;
             this.labelPrice.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPrice.Location = new System.Drawing.Point(872, 458);
+            this.labelPrice.Location = new System.Drawing.Point(872, 568);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(0, 55);
             this.labelPrice.TabIndex = 6;
@@ -148,7 +151,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(717, 458);
+            this.label1.Location = new System.Drawing.Point(717, 568);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 55);
             this.label1.TabIndex = 5;
@@ -160,10 +163,11 @@
             this.comboDetails.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDetails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboDetails.FormattingEnabled = true;
-            this.comboDetails.Location = new System.Drawing.Point(727, 415);
+            this.comboDetails.Location = new System.Drawing.Point(727, 525);
             this.comboDetails.Name = "comboDetails";
             this.comboDetails.Size = new System.Drawing.Size(396, 40);
             this.comboDetails.TabIndex = 4;
+            this.comboDetails.SelectedIndexChanged += new System.EventHandler(this.comboDetails_SelectedIndexChanged);
             // 
             // richDescription
             // 
@@ -172,7 +176,7 @@
             this.richDescription.Location = new System.Drawing.Point(727, 52);
             this.richDescription.Name = "richDescription";
             this.richDescription.ReadOnly = true;
-            this.richDescription.Size = new System.Drawing.Size(795, 357);
+            this.richDescription.Size = new System.Drawing.Size(795, 451);
             this.richDescription.TabIndex = 3;
             this.richDescription.Text = "";
             // 
@@ -194,6 +198,7 @@
             this.comboBoxItem.Name = "comboBoxItem";
             this.comboBoxItem.Size = new System.Drawing.Size(396, 40);
             this.comboBoxItem.TabIndex = 1;
+            this.comboBoxItem.SelectedIndexChanged += new System.EventHandler(this.comboBoxItem_SelectedIndexChanged);
             // 
             // comboCategory
             // 
@@ -201,24 +206,21 @@
             this.comboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboCategory.FormattingEnabled = true;
-            this.comboCategory.Items.AddRange(new object[] {
-            "Albums",
-            "Cards",
-            "SKZOO",
-            "LightStick"});
             this.comboCategory.Location = new System.Drawing.Point(6, 6);
             this.comboCategory.Name = "comboCategory";
             this.comboCategory.Size = new System.Drawing.Size(126, 40);
             this.comboCategory.TabIndex = 0;
+            this.comboCategory.SelectedIndexChanged += new System.EventHandler(this.comboCategory_SelectedIndexChanged);
             // 
             // tabPageCart
             // 
             this.tabPageCart.BackColor = System.Drawing.Color.White;
-            this.tabPageCart.Controls.Add(this.button2);
+            this.tabPageCart.Controls.Add(this.panelEmptyCart);
+            this.tabPageCart.Controls.Add(this.buttonDeleteItem);
             this.tabPageCart.Controls.Add(this.listBoxCart);
             this.tabPageCart.Controls.Add(this.panelPay);
             this.tabPageCart.Controls.Add(this.labelTotalAmount);
-            this.tabPageCart.Controls.Add(this.label3);
+            this.tabPageCart.Controls.Add(this.labelTotalText);
             this.tabPageCart.Controls.Add(this.buttonBuy);
             this.tabPageCart.Controls.Add(this.panelLogin);
             this.tabPageCart.Controls.Add(this.panelSignup);
@@ -229,97 +231,156 @@
             this.tabPageCart.TabIndex = 1;
             this.tabPageCart.Text = "Cart";
             // 
-            // panelSignup
+            // panelEmptyCart
             // 
-            this.panelSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelSignup.Controls.Add(this.label8);
-            this.panelSignup.Controls.Add(this.textBoxName);
-            this.panelSignup.Controls.Add(this.labelLogin);
-            this.panelSignup.Controls.Add(this.buttonSignUp);
-            this.panelSignup.Controls.Add(this.label9);
-            this.panelSignup.Controls.Add(this.label10);
-            this.panelSignup.Controls.Add(this.textBoxSignPassword);
-            this.panelSignup.Controls.Add(this.textBoxSignLogin);
-            this.panelSignup.Controls.Add(this.label7);
-            this.panelSignup.Location = new System.Drawing.Point(809, 6);
-            this.panelSignup.Name = "panelSignup";
-            this.panelSignup.Size = new System.Drawing.Size(713, 386);
-            this.panelSignup.TabIndex = 7;
+            this.panelEmptyCart.BackgroundImage = global::StrayKidsSHOP.Properties.Resources.skzNoCart;
+            this.panelEmptyCart.Controls.Add(this.label3);
+            this.panelEmptyCart.Location = new System.Drawing.Point(6, 6);
+            this.panelEmptyCart.Name = "panelEmptyCart";
+            this.panelEmptyCart.Size = new System.Drawing.Size(1516, 779);
+            this.panelEmptyCart.TabIndex = 13;
             // 
-            // labelLogin
+            // buttonDeleteItem
             // 
-            this.labelLogin.AutoSize = true;
-            this.labelLogin.Font = new System.Drawing.Font("Montserrat", 13.8F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelLogin.Location = new System.Drawing.Point(441, 334);
-            this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(89, 32);
-            this.labelLogin.TabIndex = 14;
-            this.labelLogin.Text = "Log in";
-            this.labelLogin.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelLogin.Click += new System.EventHandler(this.labelLogin_Click);
+            this.buttonDeleteItem.BackColor = System.Drawing.Color.Silver;
+            this.buttonDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteItem.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDeleteItem.Location = new System.Drawing.Point(18, 721);
+            this.buttonDeleteItem.Name = "buttonDeleteItem";
+            this.buttonDeleteItem.Size = new System.Drawing.Size(249, 63);
+            this.buttonDeleteItem.TabIndex = 12;
+            this.buttonDeleteItem.Text = "Delete item";
+            this.buttonDeleteItem.UseVisualStyleBackColor = false;
+            this.buttonDeleteItem.Click += new System.EventHandler(this.buttonDeleteItem_Click);
             // 
-            // buttonSignUp
+            // listBoxCart
             // 
-            this.buttonSignUp.BackColor = System.Drawing.Color.Silver;
-            this.buttonSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSignUp.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSignUp.Location = new System.Drawing.Point(563, 184);
-            this.buttonSignUp.Name = "buttonSignUp";
-            this.buttonSignUp.Size = new System.Drawing.Size(110, 110);
-            this.buttonSignUp.TabIndex = 13;
-            this.buttonSignUp.Text = "SIGN\r\nUP";
-            this.buttonSignUp.UseVisualStyleBackColor = false;
+            this.listBoxCart.FormattingEnabled = true;
+            this.listBoxCart.ItemHeight = 32;
+            this.listBoxCart.Location = new System.Drawing.Point(6, 6);
+            this.listBoxCart.Name = "listBoxCart";
+            this.listBoxCart.Size = new System.Drawing.Size(797, 580);
+            this.listBoxCart.TabIndex = 11;
             // 
-            // label9
+            // panelPay
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Montserrat", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(33, 262);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(133, 32);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "password";
+            this.panelPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelPay.Controls.Add(this.checkBoxPoints);
+            this.panelPay.Controls.Add(this.labelPoints);
+            this.panelPay.Controls.Add(this.labelMoney);
+            this.panelPay.Controls.Add(this.button1);
+            this.panelPay.Controls.Add(this.label13);
+            this.panelPay.Controls.Add(this.label14);
+            this.panelPay.Controls.Add(this.label15);
+            this.panelPay.Location = new System.Drawing.Point(809, 398);
+            this.panelPay.Name = "panelPay";
+            this.panelPay.Size = new System.Drawing.Size(713, 386);
+            this.panelPay.TabIndex = 10;
             // 
-            // label10
+            // checkBoxPoints
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Montserrat", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(91, 198);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 32);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "login";
+            this.checkBoxPoints.AutoSize = true;
+            this.checkBoxPoints.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxPoints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxPoints.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxPoints.Location = new System.Drawing.Point(211, 306);
+            this.checkBoxPoints.Name = "checkBoxPoints";
+            this.checkBoxPoints.Size = new System.Drawing.Size(200, 45);
+            this.checkBoxPoints.TabIndex = 9;
+            this.checkBoxPoints.Text = "use points";
+            this.checkBoxPoints.UseVisualStyleBackColor = true;
             // 
-            // textBoxSignPassword
+            // labelPoints
             // 
-            this.textBoxSignPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSignPassword.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxSignPassword.Location = new System.Drawing.Point(172, 248);
-            this.textBoxSignPassword.Name = "textBoxSignPassword";
-            this.textBoxSignPassword.Size = new System.Drawing.Size(364, 46);
-            this.textBoxSignPassword.TabIndex = 10;
+            this.labelPoints.AutoSize = true;
+            this.labelPoints.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPoints.Location = new System.Drawing.Point(222, 146);
+            this.labelPoints.Name = "labelPoints";
+            this.labelPoints.Size = new System.Drawing.Size(0, 41);
+            this.labelPoints.TabIndex = 8;
             // 
-            // textBoxSignLogin
+            // labelMoney
             // 
-            this.textBoxSignLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSignLogin.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxSignLogin.Location = new System.Drawing.Point(172, 184);
-            this.textBoxSignLogin.Name = "textBoxSignLogin";
-            this.textBoxSignLogin.Size = new System.Drawing.Size(364, 46);
-            this.textBoxSignLogin.TabIndex = 9;
+            this.labelMoney.AutoSize = true;
+            this.labelMoney.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelMoney.Location = new System.Drawing.Point(222, 105);
+            this.labelMoney.Name = "labelMoney";
+            this.labelMoney.Size = new System.Drawing.Size(0, 41);
+            this.labelMoney.TabIndex = 7;
             // 
-            // label7
+            // button1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(267, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(183, 51);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "SIGN UP";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(417, 235);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(256, 116);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "PAY";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(90, 146);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(126, 41);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "points:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.Location = new System.Drawing.Point(81, 105);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(135, 41);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "money:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.Location = new System.Drawing.Point(163, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(378, 51);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Have a great day, ";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // labelTotalAmount
+            // 
+            this.labelTotalAmount.AutoSize = true;
+            this.labelTotalAmount.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTotalAmount.Location = new System.Drawing.Point(335, 609);
+            this.labelTotalAmount.Name = "labelTotalAmount";
+            this.labelTotalAmount.Size = new System.Drawing.Size(0, 55);
+            this.labelTotalAmount.TabIndex = 9;
+            // 
+            // labelTotalText
+            // 
+            this.labelTotalText.AutoSize = true;
+            this.labelTotalText.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTotalText.Location = new System.Drawing.Point(8, 613);
+            this.labelTotalText.Name = "labelTotalText";
+            this.labelTotalText.Size = new System.Drawing.Size(321, 55);
+            this.labelTotalText.TabIndex = 8;
+            this.labelTotalText.Text = "Total Amount:";
+            // 
+            // buttonBuy
+            // 
+            this.buttonBuy.BackColor = System.Drawing.Color.Silver;
+            this.buttonBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuy.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonBuy.Location = new System.Drawing.Point(532, 721);
+            this.buttonBuy.Name = "buttonBuy";
+            this.buttonBuy.Size = new System.Drawing.Size(249, 63);
+            this.buttonBuy.TabIndex = 5;
+            this.buttonBuy.Text = "Buy";
+            this.buttonBuy.UseVisualStyleBackColor = false;
             // 
             // panelLogin
             // 
@@ -423,36 +484,22 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "LOG IN";
             // 
-            // labelTotalAmount
+            // panelSignup
             // 
-            this.labelTotalAmount.AutoSize = true;
-            this.labelTotalAmount.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTotalAmount.Location = new System.Drawing.Point(335, 609);
-            this.labelTotalAmount.Name = "labelTotalAmount";
-            this.labelTotalAmount.Size = new System.Drawing.Size(0, 55);
-            this.labelTotalAmount.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(8, 613);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(321, 55);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Total Amount:";
-            // 
-            // buttonBuy
-            // 
-            this.buttonBuy.BackColor = System.Drawing.Color.Silver;
-            this.buttonBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuy.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonBuy.Location = new System.Drawing.Point(532, 721);
-            this.buttonBuy.Name = "buttonBuy";
-            this.buttonBuy.Size = new System.Drawing.Size(249, 63);
-            this.buttonBuy.TabIndex = 5;
-            this.buttonBuy.Text = "Buy";
-            this.buttonBuy.UseVisualStyleBackColor = false;
+            this.panelSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelSignup.Controls.Add(this.label8);
+            this.panelSignup.Controls.Add(this.textBoxName);
+            this.panelSignup.Controls.Add(this.labelLogin);
+            this.panelSignup.Controls.Add(this.buttonSignUp);
+            this.panelSignup.Controls.Add(this.label9);
+            this.panelSignup.Controls.Add(this.label10);
+            this.panelSignup.Controls.Add(this.textBoxSignPassword);
+            this.panelSignup.Controls.Add(this.textBoxSignLogin);
+            this.panelSignup.Controls.Add(this.label7);
+            this.panelSignup.Location = new System.Drawing.Point(809, 6);
+            this.panelSignup.Name = "panelSignup";
+            this.panelSignup.Size = new System.Drawing.Size(713, 386);
+            this.panelSignup.TabIndex = 7;
             // 
             // label8
             // 
@@ -473,115 +520,93 @@
             this.textBoxName.Size = new System.Drawing.Size(364, 46);
             this.textBoxName.TabIndex = 15;
             // 
-            // panelPay
+            // labelLogin
             // 
-            this.panelPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelPay.Controls.Add(this.checkBoxPoints);
-            this.panelPay.Controls.Add(this.labelPoints);
-            this.panelPay.Controls.Add(this.labelMoney);
-            this.panelPay.Controls.Add(this.button1);
-            this.panelPay.Controls.Add(this.label13);
-            this.panelPay.Controls.Add(this.label14);
-            this.panelPay.Controls.Add(this.label15);
-            this.panelPay.Location = new System.Drawing.Point(809, 398);
-            this.panelPay.Name = "panelPay";
-            this.panelPay.Size = new System.Drawing.Size(713, 386);
-            this.panelPay.TabIndex = 10;
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.Font = new System.Drawing.Font("Montserrat", 13.8F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelLogin.Location = new System.Drawing.Point(441, 334);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(89, 32);
+            this.labelLogin.TabIndex = 14;
+            this.labelLogin.Text = "Log in";
+            this.labelLogin.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelLogin.Click += new System.EventHandler(this.labelLogin_Click);
             // 
-            // button1
+            // buttonSignUp
             // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(417, 235);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(256, 116);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "PAY";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonSignUp.BackColor = System.Drawing.Color.Silver;
+            this.buttonSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSignUp.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSignUp.Location = new System.Drawing.Point(563, 184);
+            this.buttonSignUp.Name = "buttonSignUp";
+            this.buttonSignUp.Size = new System.Drawing.Size(110, 110);
+            this.buttonSignUp.TabIndex = 13;
+            this.buttonSignUp.Text = "SIGN\r\nUP";
+            this.buttonSignUp.UseVisualStyleBackColor = false;
             // 
-            // label13
+            // label9
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(90, 146);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(126, 41);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "points:";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Montserrat", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(33, 262);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(133, 32);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "password";
             // 
-            // label14
+            // label10
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(81, 105);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(135, 41);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "money:";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Montserrat", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(91, 198);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(75, 32);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "login";
             // 
-            // label15
+            // textBoxSignPassword
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(163, 28);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(378, 51);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Have a great day, ";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.textBoxSignPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSignPassword.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxSignPassword.Location = new System.Drawing.Point(172, 248);
+            this.textBoxSignPassword.Name = "textBoxSignPassword";
+            this.textBoxSignPassword.Size = new System.Drawing.Size(364, 46);
+            this.textBoxSignPassword.TabIndex = 10;
             // 
-            // labelMoney
+            // textBoxSignLogin
             // 
-            this.labelMoney.AutoSize = true;
-            this.labelMoney.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelMoney.Location = new System.Drawing.Point(222, 105);
-            this.labelMoney.Name = "labelMoney";
-            this.labelMoney.Size = new System.Drawing.Size(0, 41);
-            this.labelMoney.TabIndex = 7;
+            this.textBoxSignLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSignLogin.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxSignLogin.Location = new System.Drawing.Point(172, 184);
+            this.textBoxSignLogin.Name = "textBoxSignLogin";
+            this.textBoxSignLogin.Size = new System.Drawing.Size(364, 46);
+            this.textBoxSignLogin.TabIndex = 9;
             // 
-            // labelPoints
+            // label7
             // 
-            this.labelPoints.AutoSize = true;
-            this.labelPoints.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPoints.Location = new System.Drawing.Point(222, 146);
-            this.labelPoints.Name = "labelPoints";
-            this.labelPoints.Size = new System.Drawing.Size(0, 41);
-            this.labelPoints.TabIndex = 8;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(267, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(183, 51);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "SIGN UP";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // checkBoxPoints
+            // label3
             // 
-            this.checkBoxPoints.AutoSize = true;
-            this.checkBoxPoints.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxPoints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBoxPoints.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxPoints.Location = new System.Drawing.Point(211, 306);
-            this.checkBoxPoints.Name = "checkBoxPoints";
-            this.checkBoxPoints.Size = new System.Drawing.Size(200, 45);
-            this.checkBoxPoints.TabIndex = 9;
-            this.checkBoxPoints.Text = "use points";
-            this.checkBoxPoints.UseVisualStyleBackColor = true;
-            // 
-            // listBoxCart
-            // 
-            this.listBoxCart.FormattingEnabled = true;
-            this.listBoxCart.ItemHeight = 32;
-            this.listBoxCart.Location = new System.Drawing.Point(6, 6);
-            this.listBoxCart.Name = "listBoxCart";
-            this.listBoxCart.Size = new System.Drawing.Size(797, 580);
-            this.listBoxCart.TabIndex = 11;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Silver;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(18, 721);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(249, 63);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Delete item";
-            this.button2.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(600, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(888, 110);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Your Cart is empty!\r\nPlease go to Shop and add something <3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // skzShopForm
             // 
@@ -603,12 +628,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).EndInit();
             this.tabPageCart.ResumeLayout(false);
             this.tabPageCart.PerformLayout();
-            this.panelSignup.ResumeLayout(false);
-            this.panelSignup.PerformLayout();
-            this.panelLogin.ResumeLayout(false);
-            this.panelLogin.PerformLayout();
+            this.panelEmptyCart.ResumeLayout(false);
+            this.panelEmptyCart.PerformLayout();
             this.panelPay.ResumeLayout(false);
             this.panelPay.PerformLayout();
+            this.panelLogin.ResumeLayout(false);
+            this.panelLogin.PerformLayout();
+            this.panelSignup.ResumeLayout(false);
+            this.panelSignup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -630,7 +657,7 @@
         private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.Button buttonBuy;
         private System.Windows.Forms.Label labelTotalAmount;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTotalText;
         private System.Windows.Forms.Panel panelSignup;
         private System.Windows.Forms.TextBox textBoxLogLogin;
         private System.Windows.Forms.Label label2;
@@ -657,8 +684,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonDeleteItem;
         private System.Windows.Forms.ListBox listBoxCart;
+        private System.Windows.Forms.Panel panelEmptyCart;
+        private System.Windows.Forms.Label label3;
     }
 }
 

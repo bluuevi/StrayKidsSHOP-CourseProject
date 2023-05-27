@@ -10,6 +10,8 @@ namespace StrayKidsSHOP
     {
         internal List<Item> CartList { get; set; }
 
+        internal decimal TotalAmount { get; set; }
+
         internal Cart()
         {
             CartList = new List<Item>();
@@ -23,6 +25,19 @@ namespace StrayKidsSHOP
         internal void DeleteItem(Item item)
         {
             CartList.Remove(item);
+        }
+
+        internal decimal CountTotalAmount()
+        {
+            decimal totalAmount = 0;
+            for (int i = 0; i < CartList.Count; i++)
+            {
+                totalAmount += CartList[i].Price;
+
+            }
+
+            this.TotalAmount = totalAmount;
+            return totalAmount;
         }
     }
 }
