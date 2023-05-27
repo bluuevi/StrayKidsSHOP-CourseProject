@@ -41,19 +41,9 @@
             this.comboCategory = new System.Windows.Forms.ComboBox();
             this.tabPageCart = new System.Windows.Forms.TabPage();
             this.panelEmptyCart = new System.Windows.Forms.Panel();
-            this.buttonDeleteItem = new System.Windows.Forms.Button();
-            this.listBoxCart = new System.Windows.Forms.ListBox();
-            this.panelPay = new System.Windows.Forms.Panel();
-            this.checkBoxPoints = new System.Windows.Forms.CheckBox();
-            this.labelPoints = new System.Windows.Forms.Label();
-            this.labelMoney = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.labelTotalAmount = new System.Windows.Forms.Label();
-            this.labelTotalText = new System.Windows.Forms.Label();
-            this.buttonBuy = new System.Windows.Forms.Button();
+            this.pictureBoxPhotos = new System.Windows.Forms.PictureBox();
             this.panelLogin = new System.Windows.Forms.Panel();
             this.label = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,6 +53,18 @@
             this.textBoxLogPassword = new System.Windows.Forms.TextBox();
             this.textBoxLogLogin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.listBoxCart = new System.Windows.Forms.ListBox();
+            this.buttonBuy = new System.Windows.Forms.Button();
+            this.buttonDeleteItem = new System.Windows.Forms.Button();
+            this.labelTotalText = new System.Windows.Forms.Label();
+            this.panelPay = new System.Windows.Forms.Panel();
+            this.checkBoxPoints = new System.Windows.Forms.CheckBox();
+            this.labelPoints = new System.Windows.Forms.Label();
+            this.labelMoney = new System.Windows.Forms.Label();
+            this.buttonPay = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.labelWelcome = new System.Windows.Forms.Label();
             this.panelSignup = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -73,14 +75,14 @@
             this.textBoxSignPassword = new System.Windows.Forms.TextBox();
             this.textBoxSignLogin = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabControlShopAndCart.SuspendLayout();
             this.tabPageShop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.tabPageCart.SuspendLayout();
             this.panelEmptyCart.SuspendLayout();
-            this.panelPay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).BeginInit();
             this.panelLogin.SuspendLayout();
+            this.panelPay.SuspendLayout();
             this.panelSignup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -216,12 +218,13 @@
             // 
             this.tabPageCart.BackColor = System.Drawing.Color.White;
             this.tabPageCart.Controls.Add(this.panelEmptyCart);
-            this.tabPageCart.Controls.Add(this.buttonDeleteItem);
-            this.tabPageCart.Controls.Add(this.listBoxCart);
-            this.tabPageCart.Controls.Add(this.panelPay);
             this.tabPageCart.Controls.Add(this.labelTotalAmount);
-            this.tabPageCart.Controls.Add(this.labelTotalText);
+            this.tabPageCart.Controls.Add(this.listBoxCart);
             this.tabPageCart.Controls.Add(this.buttonBuy);
+            this.tabPageCart.Controls.Add(this.buttonDeleteItem);
+            this.tabPageCart.Controls.Add(this.labelTotalText);
+            this.tabPageCart.Controls.Add(this.pictureBoxPhotos);
+            this.tabPageCart.Controls.Add(this.panelPay);
             this.tabPageCart.Controls.Add(this.panelLogin);
             this.tabPageCart.Controls.Add(this.panelSignup);
             this.tabPageCart.Location = new System.Drawing.Point(4, 41);
@@ -230,6 +233,7 @@
             this.tabPageCart.Size = new System.Drawing.Size(1548, 839);
             this.tabPageCart.TabIndex = 1;
             this.tabPageCart.Text = "Cart";
+            this.tabPageCart.Layout += new System.Windows.Forms.LayoutEventHandler(this.tabPageCart_Layout);
             // 
             // panelEmptyCart
             // 
@@ -240,116 +244,18 @@
             this.panelEmptyCart.Size = new System.Drawing.Size(1516, 779);
             this.panelEmptyCart.TabIndex = 13;
             // 
-            // buttonDeleteItem
+            // label3
             // 
-            this.buttonDeleteItem.BackColor = System.Drawing.Color.Silver;
-            this.buttonDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDeleteItem.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDeleteItem.Location = new System.Drawing.Point(18, 721);
-            this.buttonDeleteItem.Name = "buttonDeleteItem";
-            this.buttonDeleteItem.Size = new System.Drawing.Size(249, 63);
-            this.buttonDeleteItem.TabIndex = 12;
-            this.buttonDeleteItem.Text = "Delete item";
-            this.buttonDeleteItem.UseVisualStyleBackColor = false;
-            this.buttonDeleteItem.Click += new System.EventHandler(this.buttonDeleteItem_Click);
-            // 
-            // listBoxCart
-            // 
-            this.listBoxCart.FormattingEnabled = true;
-            this.listBoxCart.ItemHeight = 32;
-            this.listBoxCart.Location = new System.Drawing.Point(6, 6);
-            this.listBoxCart.Name = "listBoxCart";
-            this.listBoxCart.Size = new System.Drawing.Size(797, 580);
-            this.listBoxCart.TabIndex = 11;
-            // 
-            // panelPay
-            // 
-            this.panelPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelPay.Controls.Add(this.checkBoxPoints);
-            this.panelPay.Controls.Add(this.labelPoints);
-            this.panelPay.Controls.Add(this.labelMoney);
-            this.panelPay.Controls.Add(this.button1);
-            this.panelPay.Controls.Add(this.label13);
-            this.panelPay.Controls.Add(this.label14);
-            this.panelPay.Controls.Add(this.label15);
-            this.panelPay.Location = new System.Drawing.Point(809, 398);
-            this.panelPay.Name = "panelPay";
-            this.panelPay.Size = new System.Drawing.Size(713, 386);
-            this.panelPay.TabIndex = 10;
-            // 
-            // checkBoxPoints
-            // 
-            this.checkBoxPoints.AutoSize = true;
-            this.checkBoxPoints.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxPoints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBoxPoints.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxPoints.Location = new System.Drawing.Point(211, 306);
-            this.checkBoxPoints.Name = "checkBoxPoints";
-            this.checkBoxPoints.Size = new System.Drawing.Size(200, 45);
-            this.checkBoxPoints.TabIndex = 9;
-            this.checkBoxPoints.Text = "use points";
-            this.checkBoxPoints.UseVisualStyleBackColor = true;
-            // 
-            // labelPoints
-            // 
-            this.labelPoints.AutoSize = true;
-            this.labelPoints.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPoints.Location = new System.Drawing.Point(222, 146);
-            this.labelPoints.Name = "labelPoints";
-            this.labelPoints.Size = new System.Drawing.Size(0, 41);
-            this.labelPoints.TabIndex = 8;
-            // 
-            // labelMoney
-            // 
-            this.labelMoney.AutoSize = true;
-            this.labelMoney.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelMoney.Location = new System.Drawing.Point(222, 105);
-            this.labelMoney.Name = "labelMoney";
-            this.labelMoney.Size = new System.Drawing.Size(0, 41);
-            this.labelMoney.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(417, 235);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(256, 116);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "PAY";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(90, 146);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(126, 41);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "points:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(81, 105);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(135, 41);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "money:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(163, 28);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(378, 51);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Have a great day, ";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(600, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(888, 110);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Your Cart is empty!\r\nPlease go to Shop and add something <3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelTotalAmount
             // 
@@ -360,27 +266,14 @@
             this.labelTotalAmount.Size = new System.Drawing.Size(0, 55);
             this.labelTotalAmount.TabIndex = 9;
             // 
-            // labelTotalText
+            // pictureBoxPhotos
             // 
-            this.labelTotalText.AutoSize = true;
-            this.labelTotalText.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTotalText.Location = new System.Drawing.Point(8, 613);
-            this.labelTotalText.Name = "labelTotalText";
-            this.labelTotalText.Size = new System.Drawing.Size(321, 55);
-            this.labelTotalText.TabIndex = 8;
-            this.labelTotalText.Text = "Total Amount:";
-            // 
-            // buttonBuy
-            // 
-            this.buttonBuy.BackColor = System.Drawing.Color.Silver;
-            this.buttonBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuy.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonBuy.Location = new System.Drawing.Point(532, 721);
-            this.buttonBuy.Name = "buttonBuy";
-            this.buttonBuy.Size = new System.Drawing.Size(249, 63);
-            this.buttonBuy.TabIndex = 5;
-            this.buttonBuy.Text = "Buy";
-            this.buttonBuy.UseVisualStyleBackColor = false;
+            this.pictureBoxPhotos.BackColor = System.Drawing.Color.White;
+            this.pictureBoxPhotos.Location = new System.Drawing.Point(809, 6);
+            this.pictureBoxPhotos.Name = "pictureBoxPhotos";
+            this.pictureBoxPhotos.Size = new System.Drawing.Size(707, 779);
+            this.pictureBoxPhotos.TabIndex = 1;
+            this.pictureBoxPhotos.TabStop = false;
             // 
             // panelLogin
             // 
@@ -435,6 +328,7 @@
             this.buttonLogin.TabIndex = 6;
             this.buttonLogin.Text = "LOG\r\nIN";
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // label5
             // 
@@ -483,6 +377,141 @@
             this.label2.Size = new System.Drawing.Size(156, 51);
             this.label2.TabIndex = 0;
             this.label2.Text = "LOG IN";
+            // 
+            // listBoxCart
+            // 
+            this.listBoxCart.FormattingEnabled = true;
+            this.listBoxCart.ItemHeight = 32;
+            this.listBoxCart.Location = new System.Drawing.Point(6, 6);
+            this.listBoxCart.Name = "listBoxCart";
+            this.listBoxCart.Size = new System.Drawing.Size(797, 580);
+            this.listBoxCart.TabIndex = 11;
+            // 
+            // buttonBuy
+            // 
+            this.buttonBuy.BackColor = System.Drawing.Color.Silver;
+            this.buttonBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuy.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonBuy.Location = new System.Drawing.Point(532, 721);
+            this.buttonBuy.Name = "buttonBuy";
+            this.buttonBuy.Size = new System.Drawing.Size(249, 63);
+            this.buttonBuy.TabIndex = 5;
+            this.buttonBuy.Text = "Buy";
+            this.buttonBuy.UseVisualStyleBackColor = false;
+            this.buttonBuy.Click += new System.EventHandler(this.buttonBuy_Click);
+            // 
+            // buttonDeleteItem
+            // 
+            this.buttonDeleteItem.BackColor = System.Drawing.Color.Silver;
+            this.buttonDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteItem.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDeleteItem.Location = new System.Drawing.Point(18, 721);
+            this.buttonDeleteItem.Name = "buttonDeleteItem";
+            this.buttonDeleteItem.Size = new System.Drawing.Size(249, 63);
+            this.buttonDeleteItem.TabIndex = 12;
+            this.buttonDeleteItem.Text = "Delete item";
+            this.buttonDeleteItem.UseVisualStyleBackColor = false;
+            this.buttonDeleteItem.Click += new System.EventHandler(this.buttonDeleteItem_Click);
+            // 
+            // labelTotalText
+            // 
+            this.labelTotalText.AutoSize = true;
+            this.labelTotalText.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTotalText.Location = new System.Drawing.Point(8, 613);
+            this.labelTotalText.Name = "labelTotalText";
+            this.labelTotalText.Size = new System.Drawing.Size(321, 55);
+            this.labelTotalText.TabIndex = 8;
+            this.labelTotalText.Text = "Total Amount:";
+            // 
+            // panelPay
+            // 
+            this.panelPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelPay.Controls.Add(this.checkBoxPoints);
+            this.panelPay.Controls.Add(this.labelPoints);
+            this.panelPay.Controls.Add(this.labelMoney);
+            this.panelPay.Controls.Add(this.buttonPay);
+            this.panelPay.Controls.Add(this.label13);
+            this.panelPay.Controls.Add(this.label14);
+            this.panelPay.Controls.Add(this.labelWelcome);
+            this.panelPay.Location = new System.Drawing.Point(809, 398);
+            this.panelPay.Name = "panelPay";
+            this.panelPay.Size = new System.Drawing.Size(713, 386);
+            this.panelPay.TabIndex = 10;
+            // 
+            // checkBoxPoints
+            // 
+            this.checkBoxPoints.AutoSize = true;
+            this.checkBoxPoints.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxPoints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxPoints.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxPoints.Location = new System.Drawing.Point(211, 306);
+            this.checkBoxPoints.Name = "checkBoxPoints";
+            this.checkBoxPoints.Size = new System.Drawing.Size(200, 45);
+            this.checkBoxPoints.TabIndex = 9;
+            this.checkBoxPoints.Text = "use points";
+            this.checkBoxPoints.UseVisualStyleBackColor = true;
+            // 
+            // labelPoints
+            // 
+            this.labelPoints.AutoSize = true;
+            this.labelPoints.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPoints.Location = new System.Drawing.Point(222, 146);
+            this.labelPoints.Name = "labelPoints";
+            this.labelPoints.Size = new System.Drawing.Size(0, 41);
+            this.labelPoints.TabIndex = 8;
+            // 
+            // labelMoney
+            // 
+            this.labelMoney.AutoSize = true;
+            this.labelMoney.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelMoney.Location = new System.Drawing.Point(222, 105);
+            this.labelMoney.Name = "labelMoney";
+            this.labelMoney.Size = new System.Drawing.Size(0, 41);
+            this.labelMoney.TabIndex = 7;
+            // 
+            // buttonPay
+            // 
+            this.buttonPay.BackColor = System.Drawing.Color.Silver;
+            this.buttonPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPay.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPay.Location = new System.Drawing.Point(417, 235);
+            this.buttonPay.Name = "buttonPay";
+            this.buttonPay.Size = new System.Drawing.Size(256, 116);
+            this.buttonPay.TabIndex = 6;
+            this.buttonPay.Text = "PAY";
+            this.buttonPay.UseVisualStyleBackColor = false;
+            this.buttonPay.Click += new System.EventHandler(this.buttonPay_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(90, 146);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(126, 41);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "points:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Montserrat", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.Location = new System.Drawing.Point(81, 105);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(135, 41);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "money:";
+            // 
+            // labelWelcome
+            // 
+            this.labelWelcome.AutoSize = true;
+            this.labelWelcome.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWelcome.Location = new System.Drawing.Point(163, 28);
+            this.labelWelcome.Name = "labelWelcome";
+            this.labelWelcome.Size = new System.Drawing.Size(378, 51);
+            this.labelWelcome.TabIndex = 0;
+            this.labelWelcome.Text = "Have a great day, ";
+            this.labelWelcome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panelSignup
             // 
@@ -545,6 +574,7 @@
             this.buttonSignUp.TabIndex = 13;
             this.buttonSignUp.Text = "SIGN\r\nUP";
             this.buttonSignUp.UseVisualStyleBackColor = false;
+            this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);
             // 
             // label9
             // 
@@ -595,19 +625,6 @@
             this.label7.Text = "SIGN UP";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Montserrat", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(600, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(888, 110);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Your Cart is empty!\r\nPlease go to Shop and add something <3";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // skzShopForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -630,10 +647,11 @@
             this.tabPageCart.PerformLayout();
             this.panelEmptyCart.ResumeLayout(false);
             this.panelEmptyCart.PerformLayout();
-            this.panelPay.ResumeLayout(false);
-            this.panelPay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).EndInit();
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
+            this.panelPay.ResumeLayout(false);
+            this.panelPay.PerformLayout();
             this.panelSignup.ResumeLayout(false);
             this.panelSignup.PerformLayout();
             this.ResumeLayout(false);
@@ -680,14 +698,15 @@
         private System.Windows.Forms.CheckBox checkBoxPoints;
         private System.Windows.Forms.Label labelPoints;
         private System.Windows.Forms.Label labelMoney;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonPay;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelWelcome;
         private System.Windows.Forms.Button buttonDeleteItem;
         private System.Windows.Forms.ListBox listBoxCart;
         private System.Windows.Forms.Panel panelEmptyCart;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBoxPhotos;
     }
 }
 

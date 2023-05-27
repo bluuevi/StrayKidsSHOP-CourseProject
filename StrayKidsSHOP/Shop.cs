@@ -18,7 +18,7 @@ namespace StrayKidsSHOP
         {
             ItemsBase = ItemsBase.GetInstance();
             Cart = new Cart();
-           // User = new User();
+           
         }
 
 

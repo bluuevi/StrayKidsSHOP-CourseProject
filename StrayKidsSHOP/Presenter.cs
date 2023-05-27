@@ -391,7 +391,30 @@ namespace StrayKidsSHOP
 
 
 
+        public bool LoginUser(string login, string password)
+        {
+            shop.User = User.LoginUser(login, password);
+            if (shop.User != null)
+            {
 
+                view.LoginOrSignUpSuccesful(shop.User.Name, shop.User.Money.ToString(), shop.User.Points.ToString());
+                return true;
+            }
+            else return false;
+        }
+
+        public bool SignUpUser(string name, string login, string password)
+        {
+            shop.User = User.SignupUser(name, login, password);
+            if (shop.User != null)
+            {
+
+                view.LoginOrSignUpSuccesful(shop.User.Name, shop.User.Money.ToString(), shop.User.Points.ToString());
+                return true;
+            }
+            else return false;
+
+        }
 
 
 

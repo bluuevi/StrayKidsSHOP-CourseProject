@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace StrayKidsSHOP
@@ -31,14 +32,18 @@ namespace StrayKidsSHOP
             }
             else Presenter.AddItemsInfo(comboCategory.Text, comboBoxItem.Text, comboDetails.Text);
 
-            panelEmptyCart.Visible = false;
+            panelEmptyCart.Visible = true;
             buttonDeleteItem.Visible = false;
             buttonBuy.Visible = false;
             labelTotalText.Visible = false;
             labelTotalAmount.Visible = false;
+            panelLogin.Visible = false;
+            panelSignup.Visible = false;
+            panelPay.Visible = false;
+            pictureBoxPhotos.Visible = true;
+            pictureBoxPhotos.Image = Image.FromFile("1.jpg");
 
         }
-
 
 
         public void AddTextInCombo(string text, ComboBox comboBox)
@@ -68,7 +73,7 @@ namespace StrayKidsSHOP
         {
 
             listBoxCart.Items.RemoveAt(i);
-           
+
         }
 
 
@@ -77,6 +82,44 @@ namespace StrayKidsSHOP
         {
             labelTotalAmount.Text = total;
         }
+
+
+        public void LoginOrSignUpSuccesful(string name, string money, string points)
+        {
+
+            panelLogin.Visible = false;
+            panelSignup.Visible = false;
+            panelPay.Visible = true;
+
+            labelWelcome.Text += name;
+            labelMoney.Text = money;
+            labelPoints.Text = points;
+        }
+
+
+
+        public void Pay(string money, string points)
+        {
+            listBoxCart.Items.Clear();
+            labelTotalAmount.Text = null;
+            labelMoney.Text=money;
+            labelPoints.Text=points;
+            MessageBox.Show("Your order is accepted!! \nOur manager will contact you <3");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,15 +133,19 @@ namespace StrayKidsSHOP
 
         private void labelLogin_Click(object sender, EventArgs e)
         {
-            panelLogin.BringToFront();
+            panelLogin.Visible = true;
+            panelSignup.Visible = false;
+          
         }
 
         private void label_Click(object sender, EventArgs e)
         {
-            panelSignup.BringToFront();
+            panelLogin.Visible = false;
+            panelSignup.Visible = true;
+
         }
 
-       
+
 
         private void comboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -147,11 +194,19 @@ namespace StrayKidsSHOP
         private void buttonAddToCart_Click(object sender, EventArgs e)
         {
 
+            if ((panelPay.Visible == true) || (panelLogin.Visible == true) || (panelSignup.Visible == true))
+            {
+                buttonBuy.Visible = false;
+            }
+            else
+            {
+                buttonBuy.Visible = true;
+            }
 
-            buttonBuy.Visible = true;
+
             buttonDeleteItem.Visible = true;
             labelTotalText.Visible = true;
-            labelTotalAmount.Visible=true;
+            labelTotalAmount.Visible = true;
             panelEmptyCart.Visible = false;
 
 
@@ -169,7 +224,7 @@ namespace StrayKidsSHOP
         private void buttonDeleteItem_Click(object sender, EventArgs e)
         {
 
-            
+
             if (listBoxCart.SelectedIndex != -1)
             {
                 Presenter.DeleteFromCart(listBoxCart.SelectedIndex);
@@ -181,13 +236,75 @@ namespace StrayKidsSHOP
             if (listBoxCart.Items.Count == 0)
             {
                 buttonBuy.Visible = false;
-                buttonDeleteItem.Visible = false;
-                labelTotalText.Visible=false;
+                labelTotalText.Visible = false;
                 labelTotalAmount.Visible = false;
                 panelEmptyCart.Visible = true;
 
 
             }
+
+        }
+
+        private void buttonBuy_Click(object sender, EventArgs e)
+        {
+
+            buttonBuy.Visible = false;
+            pictureBoxPhotos.Visible = false;
+            panelLogin.Visible = true;
+
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            if ((textBoxLogLogin.Text != null) && (textBoxLogPassword.Text != null))
+            {
+
+                if (!Presenter.LoginUser(textBoxLogLogin.Text, textBoxLogPassword.Text))
+                    MessageBox.Show("Login failed :(");
+
+             
+            }
+            else MessageBox.Show("Please fill in the fields!");
+
+            
+
+
+        }
+
+        private void buttonSignUp_Click(object sender, EventArgs e)
+        {
+
+            if ((textBoxSignLogin.Text != null) && (textBoxSignPassword.Text != null) && (textBoxName.Text != null))
+            {
+
+
+
+                if (!Presenter.SignUpUser(textBoxName.Text, textBoxSignLogin.Text, textBoxSignPassword.Text))
+                    MessageBox.Show("Sign up failed :(");
+            }
+            else MessageBox.Show("Please fill in the fields!");
+
+           
+
+        }
+
+        private void tabPageCart_Layout(object sender, LayoutEventArgs e)
+        {
+
+
+            if ((panelPay.Visible == true) || (panelLogin.Visible == true) || (panelSignup.Visible == true))
+            {
+                buttonBuy.Visible = false;
+            }
+            else
+            {
+                buttonBuy.Visible = true;
+            }
+
+        }
+
+        private void buttonPay_Click(object sender, EventArgs e)
+        {
 
         }
     }

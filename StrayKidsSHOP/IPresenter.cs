@@ -25,6 +25,10 @@ namespace StrayKidsSHOP
 
         void DeleteFromCart(int i);
         void CountTotalAmount();
+        bool LoginUser(string login, string password);
+
+        bool SignUpUser(string name, string login, string password);
+
 
 
 

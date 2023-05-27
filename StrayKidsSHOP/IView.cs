@@ -22,6 +22,9 @@ namespace StrayKidsSHOP
 
         void ShowTotalAmount(string total);
 
+         void LoginOrSignUpSuccesful(string name, string money, string points);
+
+
 
 
 
