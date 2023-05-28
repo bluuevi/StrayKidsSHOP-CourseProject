@@ -23,7 +23,7 @@ namespace StrayKidsSHOP
             Name = name;
             Login = login;
             Password = password;
-            Money = 100000;
+            Money = 1000000;
             Points = 100;
         }
 

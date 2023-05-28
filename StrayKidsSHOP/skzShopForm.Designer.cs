@@ -43,11 +43,9 @@
             this.panelEmptyCart = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.labelTotalAmount = new System.Windows.Forms.Label();
-            this.listBoxCart = new System.Windows.Forms.ListBox();
             this.buttonBuy = new System.Windows.Forms.Button();
             this.buttonDeleteItem = new System.Windows.Forms.Button();
             this.labelTotalText = new System.Windows.Forms.Label();
-            this.pictureBoxPhotos = new System.Windows.Forms.PictureBox();
             this.panelPay = new System.Windows.Forms.Panel();
             this.checkBoxPoints = new System.Windows.Forms.CheckBox();
             this.labelPoints = new System.Windows.Forms.Label();
@@ -75,15 +73,17 @@
             this.textBoxSignPassword = new System.Windows.Forms.TextBox();
             this.textBoxSignLogin = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.listBoxCart = new System.Windows.Forms.ListBox();
+            this.pictureBoxPhotos = new System.Windows.Forms.PictureBox();
             this.tabControlShopAndCart.SuspendLayout();
             this.tabPageShop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.tabPageCart.SuspendLayout();
             this.panelEmptyCart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).BeginInit();
             this.panelPay.SuspendLayout();
             this.panelLogin.SuspendLayout();
             this.panelSignup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCLOSE
@@ -108,6 +108,7 @@
             this.tabControlShopAndCart.SelectedIndex = 0;
             this.tabControlShopAndCart.Size = new System.Drawing.Size(1556, 884);
             this.tabControlShopAndCart.TabIndex = 1;
+            this.tabControlShopAndCart.SelectedIndexChanged += new System.EventHandler(this.tabControlShopAndCart_SelectedIndexChanged);
             // 
             // tabPageShop
             // 
@@ -233,7 +234,6 @@
             this.tabPageCart.Size = new System.Drawing.Size(1548, 839);
             this.tabPageCart.TabIndex = 1;
             this.tabPageCart.Text = "Cart";
-            this.tabPageCart.Layout += new System.Windows.Forms.LayoutEventHandler(this.tabPageCart_Layout);
             // 
             // panelEmptyCart
             // 
@@ -265,15 +265,6 @@
             this.labelTotalAmount.Name = "labelTotalAmount";
             this.labelTotalAmount.Size = new System.Drawing.Size(0, 55);
             this.labelTotalAmount.TabIndex = 9;
-            // 
-            // listBoxCart
-            // 
-            this.listBoxCart.FormattingEnabled = true;
-            this.listBoxCart.ItemHeight = 32;
-            this.listBoxCart.Location = new System.Drawing.Point(6, 6);
-            this.listBoxCart.Name = "listBoxCart";
-            this.listBoxCart.Size = new System.Drawing.Size(797, 580);
-            this.listBoxCart.TabIndex = 11;
             // 
             // buttonBuy
             // 
@@ -310,15 +301,6 @@
             this.labelTotalText.Size = new System.Drawing.Size(321, 55);
             this.labelTotalText.TabIndex = 8;
             this.labelTotalText.Text = "Total Amount:";
-            // 
-            // pictureBoxPhotos
-            // 
-            this.pictureBoxPhotos.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPhotos.Location = new System.Drawing.Point(809, 6);
-            this.pictureBoxPhotos.Name = "pictureBoxPhotos";
-            this.pictureBoxPhotos.Size = new System.Drawing.Size(707, 779);
-            this.pictureBoxPhotos.TabIndex = 1;
-            this.pictureBoxPhotos.TabStop = false;
             // 
             // panelPay
             // 
@@ -548,7 +530,7 @@
             this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxName.Font = new System.Drawing.Font("Montserrat", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxName.Location = new System.Drawing.Point(172, 120);
-            this.textBoxName.MaxLength = 20;
+            this.textBoxName.MaxLength = 28;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(364, 46);
             this.textBoxName.TabIndex = 15;
@@ -634,6 +616,24 @@
             this.label7.Text = "SIGN UP";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // listBoxCart
+            // 
+            this.listBoxCart.FormattingEnabled = true;
+            this.listBoxCart.ItemHeight = 32;
+            this.listBoxCart.Location = new System.Drawing.Point(6, 6);
+            this.listBoxCart.Name = "listBoxCart";
+            this.listBoxCart.Size = new System.Drawing.Size(797, 580);
+            this.listBoxCart.TabIndex = 11;
+            // 
+            // pictureBoxPhotos
+            // 
+            this.pictureBoxPhotos.BackColor = System.Drawing.Color.White;
+            this.pictureBoxPhotos.Location = new System.Drawing.Point(809, 6);
+            this.pictureBoxPhotos.Name = "pictureBoxPhotos";
+            this.pictureBoxPhotos.Size = new System.Drawing.Size(707, 779);
+            this.pictureBoxPhotos.TabIndex = 1;
+            this.pictureBoxPhotos.TabStop = false;
+            // 
             // skzShopForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -656,13 +656,13 @@
             this.tabPageCart.PerformLayout();
             this.panelEmptyCart.ResumeLayout(false);
             this.panelEmptyCart.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).EndInit();
             this.panelPay.ResumeLayout(false);
             this.panelPay.PerformLayout();
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
             this.panelSignup.ResumeLayout(false);
             this.panelSignup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).EndInit();
             this.ResumeLayout(false);
 
         }

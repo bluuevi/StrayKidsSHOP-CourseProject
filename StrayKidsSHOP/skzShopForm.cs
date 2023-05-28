@@ -289,21 +289,7 @@ namespace StrayKidsSHOP
 
         }
 
-        private void tabPageCart_Layout(object sender, LayoutEventArgs e)
-        {
-
-
-            if ((panelPay.Visible == true) || (panelLogin.Visible == true) || (panelSignup.Visible == true))
-            {
-                buttonBuy.Visible = false;
-            }
-            else
-            {
-                buttonBuy.Visible = true;
-            }
-
-        }
-
+       
         private void buttonPay_Click(object sender, EventArgs e)
         {
             Presenter.Pay(checkBoxPoints.Checked);
@@ -346,6 +332,18 @@ namespace StrayKidsSHOP
             if (textBoxSignPassword.Text.IndexOf(' ') > -1)
             {
                 textBoxSignPassword.Text = "";
+            }
+        }
+
+        private void tabControlShopAndCart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((panelPay.Visible == true) || (panelLogin.Visible == true) || (panelSignup.Visible == true))
+            {
+                buttonBuy.Visible = false;
+            }
+            else
+            {
+                buttonBuy.Visible = true;
             }
         }
     }
