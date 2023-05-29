@@ -7,9 +7,9 @@ using System.IO;
 
 namespace StrayKidsSHOP
 {
-    public class User
+    public class User //класс пользователь
     {
-        public static User user;
+        public static User user;  //объект для инициализации пользователя
         public string Name { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
@@ -18,7 +18,7 @@ namespace StrayKidsSHOP
 
         public decimal Points { get; set; }
 
-        private User(string name, string login, string password)
+        private User(string name, string login, string password) //конструктор пользователя
         {
             Name = name;
             Login = login;
@@ -27,16 +27,16 @@ namespace StrayKidsSHOP
             Points = 100;
         }
 
-
-        private static bool CheckUser(string login, string password)
+        // статические методы для инициализации пользователя
+        private static bool CheckUser(string login, string password) //проверка существования файла с данным логином и соответствия пароля
         {
-            string[] client_count = Directory.GetFiles("Users");
+            string[] user_count = Directory.GetFiles("Users"); //подсчет колва файлов
             bool flag = false; 
-            foreach (string file in client_count)
+            foreach (string file in user_count) 
             {
                 StreamReader reader = new StreamReader(file);
-                string[] mas = reader.ReadLine().Split(' ');
-                if (mas[0] == login && mas[1] == password)
+                string[] mas = reader.ReadLine().Split(' '); //разделение слов пробелами
+                if (mas[0] == login && mas[1] == password) //если логин и пароль соответствуют искомым
                 {
                     flag = true; reader.Close();
                     break;
@@ -49,11 +49,11 @@ namespace StrayKidsSHOP
             }
             else return true;
         }
-        private static bool CheckUser(string login)
+        private static bool CheckUser(string login) //проверка на существование заданного логина
         {
-            string[] client_count = Directory.GetFiles("Users");
+            string[] user_count = Directory.GetFiles("Users");
             bool flag = false;
-            foreach (string file in client_count)
+            foreach (string file in user_count) 
             {
                 StreamReader reader = new StreamReader(file);
                 string[] mas = reader.ReadLine().Split(' '); if (mas[0] == login)
@@ -69,25 +69,25 @@ namespace StrayKidsSHOP
             }
             else return false;
         }
-        internal static User SignupUser(string name, string login, string password) //registration
+        internal static User SignupUser(string name, string login, string password) //регистрация пользователя
         {
-            if(CheckUser(login))
+            if(CheckUser(login)) //если нет пользователя с данным логином
             {
-                 user = new User(name, login, password);
+                 user = new User(name, login, password); //создаем пользователя
                
 
                 string s = login + " " + password + " " + name + " " + user.Money + " " + user.Points; 
-                File.WriteAllText("Users\\" + user.Login +".txt", s);
+                File.WriteAllText("Users\\" + user.Login +".txt", s); //записываем в файл логин пароль и имя
                 return user;
             }
            return null;
         }
-        internal static User LoginUser(string login, string password)
+        internal static User LoginUser(string login, string password) //авторизация пользователя
         {
-            if (CheckUser(login, password))
+            if (CheckUser(login, password)) //если есть такой пользователь
             {
                 string[] mas = File.ReadAllText("Users\\"+login + ".txt").Split(' ');
-
+                //информацию из файла записываем в соответствующие поля
                 user = new User(mas[2], mas[0], mas[1]);
                 user.Money = Convert.ToDecimal(mas[3]);
                 user.Points = Convert.ToDecimal(mas[4]);
@@ -96,8 +96,9 @@ namespace StrayKidsSHOP
             
             return null;
         }
-        internal void Pay()
+        internal void Pay() //после оплаты
         {
+            //переписываем файл пользователя с новыми значениями денег и бонусов
             string s = this.Login + " " + this.Password + " " + this.Name + " " + user.Money + " " + user.Points;
             File.WriteAllText("Users\\" + user.Login + ".txt", s);
         }

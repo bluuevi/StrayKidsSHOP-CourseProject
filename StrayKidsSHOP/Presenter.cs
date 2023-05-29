@@ -11,8 +11,8 @@ namespace StrayKidsSHOP
     internal class Presenter : IPresenter
     {
 
-        internal IView view;
-        internal Shop shop;
+        internal IView view; //объект представления
+        internal Shop shop; //объект магазина
 
         public Presenter(IView View)
         {
@@ -21,6 +21,7 @@ namespace StrayKidsSHOP
 
         }
 
+        //метод для добавления категорий товаров из модели в представление
         public void AddCategoriesToCombo(ComboBox combobox)
         {
             for (int i = 0; i < shop.ItemsBase.Categories.Count; i++)
@@ -29,34 +30,38 @@ namespace StrayKidsSHOP
             }
         }
 
-
+        //метод добавления названий и доп. параметров о товарах выбранной категории из модели в представление
         public void AddItemsAndDetailsToCombo(ComboBox comboboxItem, ComboBox comboboxDetails, string category)
         {
 
             switch (category)
             {
+                //если  категория лайтстик
                 case "Lightstick":
 
                     for (int i = 0; i < shop.ItemsBase.Lightsticks.Count; i++)
                     {
-                        bool repeat = false;
+                        bool repeat = false; //повторяющиеся названия
                         for (int j = 0; j < comboboxItem.Items.Count; j++)
                         {
-                            if (shop.ItemsBase.Lightsticks[i].Name == Convert.ToString(comboboxItem.Items[j]))
+                            if (shop.ItemsBase.Lightsticks[i].Name == Convert.ToString(comboboxItem.Items[j])) //такое название уже есть
                             {
                                 repeat = true;
                             }
                         }
 
-                        if (repeat == false)
+                        if (repeat == false) //если такого названия нет в комбобоксе
                         {
+                            //добавляет название
                             view.AddTextInCombo(shop.ItemsBase.Lightsticks[i].Name, comboboxItem);
 
                         }
                     }
                     break;
 
+                //если категория лайтстик
                 case "Albums":
+                    //так же как и лайтстик
                     for (int i = 0; i < shop.ItemsBase.Albums.Count; i++)
                     {
                         bool repeat = false;
@@ -75,7 +80,7 @@ namespace StrayKidsSHOP
                         }
 
                     }
-
+                    //добавление типов альбомов, потакой же логике, как и названий
                     for (int i = 0; i < shop.ItemsBase.Albums.Count; i++)
                     {
                         bool repeat = false;
@@ -96,8 +101,9 @@ namespace StrayKidsSHOP
                     }
 
                     break;
-
+                    //если категория карточки
                 case "Cards":
+                    //так же, как и альбомы
                     for (int i = 0; i < shop.ItemsBase.Cards.Count; i++)
                     {
                         bool repeat = false;
@@ -135,7 +141,8 @@ namespace StrayKidsSHOP
                     }
                     break;
 
-                case "SKZOO":
+                case "SKZOO": //если категория SKZOO
+                    //так же, как выше
                     for (int i = 0; i < shop.ItemsBase.SKZOO.Count; i++)
                     {
                         bool repeat = false;
@@ -179,8 +186,8 @@ namespace StrayKidsSHOP
 
         }
 
-
-        public void AddItemsInfo(string category, string name, string details)
+        //добавление информации о выбранном товаре (описание, картинка, цена) из модели в представление
+        public void AddItemsInfo(string category, string name, string details) //перегрузка метода для тех товаров, у которых есть доп параметры
         {
             switch (category)
             {
@@ -236,8 +243,7 @@ namespace StrayKidsSHOP
 
 
         }
-
-        public void AddItemsInfo(string category, string name)
+        public void AddItemsInfo(string category, string name)//перегрузка метода для тех товаров, у которых нет доп. параметров
         {
             switch (category)
             {
@@ -264,11 +270,9 @@ namespace StrayKidsSHOP
 
         }
 
-
-
-        public void AddToCart(string category, string name, string details)
+        //метод добавления товара в корзину
+        public void AddToCart(string category, string name, string details) //перегрузка метода для тех товаров, у которых есть доп. параметры 
         {
-
 
             switch (category)
             {
@@ -329,16 +333,11 @@ namespace StrayKidsSHOP
                     break;
 
 
-
-
-
             }
 
 
         }
-
-
-        public void AddToCart(string category, string name)
+        public void AddToCart(string category, string name) //перегрузка метода для тех товаров, у которых нет доп. параметров
         {
 
             switch (category)
@@ -366,31 +365,22 @@ namespace StrayKidsSHOP
 
         }
 
-
-
-
-        public void DeleteFromCart(int i)
+        //метод удаления товара из корзины
+        public void DeleteFromCart(int i) 
         {
             view.DeleteFromCart(i);
 
             shop.Cart.CartList.RemoveAt(i);
         }
 
-
-
-
-
-
-
+        //метод расчета стоимости товаров в корзине
         public void CountTotalAmount()
-
         {
             shop.Cart.CountTotalAmount();
             view.ShowTotalAmount(shop.Cart.TotalAmount.ToString());
         }
 
-
-
+        //метод авторизации пользователя 
         public bool LoginUser(string login, string password)
         {
             shop.User = User.LoginUser(login, password);
@@ -403,6 +393,7 @@ namespace StrayKidsSHOP
             else return false;
         }
 
+        //метод регистрации пользователя
         public bool SignUpUser(string name, string login, string password)
         {
             shop.User = User.SignupUser(name, login, password);
@@ -416,66 +407,22 @@ namespace StrayKidsSHOP
 
         }
 
-
-        public bool Pay(bool useBonuses)
+        //метод оплаты
+        public bool Pay(bool usePoints)
         {
-            if (!useBonuses)
-                if (shop.Cart.TotalAmount > shop.User.Money)
-                {
-                    MessageBox.Show("You haven't enough money :(");
-                    return false;
-                }
-                else
-                {
-                    shop.User.Money -= shop.Cart.TotalAmount;
-                    shop.User.Points+=shop.Cart.TotalAmount/100;
-                    view.Pay(shop.User.Money.ToString(), shop.User.Points.ToString());
-                    shop.User.Pay();
-                    shop.Cart.CartList.Clear();
 
-                    return true;
-                }
+            if (!shop.Pay(usePoints))
+            {
+                return false;
+            }
+            else
+            {
 
-
-
-            if (useBonuses)
-                if (shop.User.Points > shop.Cart.TotalAmount)
-                {
-                    shop.User.Points -= shop.Cart.TotalAmount;
-                    shop.User.Points += shop.Cart.TotalAmount / 100;
-                    view.Pay(shop.User.Money.ToString(), shop.User.Points.ToString());
-                    shop.User.Pay();
-                    shop.Cart.CartList.Clear();
-
-                    return true;
-                }
-                else
-                {
-                    if ((shop.User.Money - shop.User.Points) >= shop.Cart.TotalAmount)
-                    {
-                        shop.User.Money -= (shop.Cart.TotalAmount - shop.User.Points);
-                        shop.User.Points = 0;
-                        shop.User.Points += shop.Cart.TotalAmount / 100;
-                        view.Pay(shop.User.Money.ToString(), shop.User.Points.ToString());
-                        shop.User.Pay();
-                        shop.Cart.CartList.Clear();
-
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("You haven't enough points :(");
-                        return false;
-                    }
-
-                }
-            else return false;
-
-            
+                view.Pay(shop.User.Money.ToString(), shop.User.Points.ToString());
+                return true;
+            }
 
         }
-
-
 
     }
 }

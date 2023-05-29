@@ -6,27 +6,34 @@ using System.Threading.Tasks;
 
 namespace StrayKidsSHOP
 {
-    internal class Cart
+    //корзина
+    internal class Cart 
     {
+        //список товаров в корзине
         internal List<Item> CartList { get; set; }
 
+        //стоимость товаров в корзине
         internal decimal TotalAmount { get; set; }
 
+        //конструктор
         internal Cart()
         {
             CartList = new List<Item>();
         }
 
+        //добавление товара в корзину
         internal void AddItem(Item item)
         {
             CartList.Add(item);
         }
 
+        //удаление товара из корзины
         internal void DeleteItem(Item item)
         {
             CartList.Remove(item);
         }
 
+        //метод расчета стоимости товаров в корзине
         internal decimal CountTotalAmount()
         {
             decimal totalAmount = 0;
@@ -36,7 +43,7 @@ namespace StrayKidsSHOP
 
             }
 
-            this.TotalAmount = totalAmount;
+            this.TotalAmount = totalAmount; //заполнение свойства стоимости
             return totalAmount;
         }
     }

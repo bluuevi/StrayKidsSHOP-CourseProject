@@ -9,35 +9,37 @@ using System.Windows.Forms;
 
 namespace StrayKidsSHOP
 {
-    internal interface IPresenter
+    internal interface IPresenter //интерфейс презентера 
     {
+
+        //метод для добавления категорий товаров из модели в представление
         void AddCategoriesToCombo(ComboBox combobox);
 
+        //метод добавления названий и доп. параметров о товарах выбранной категории из модели в представление
         void AddItemsAndDetailsToCombo(ComboBox comboboxItem, ComboBox comboboxDetails, string category);
 
-        void AddItemsInfo(string category, string name, string details);
+        //добавление информации о выбранном товаре (описание, картинка, цена) из модели в представление
+        void AddItemsInfo(string category, string name);//перегрузка метода для тех товаров, у которых нет доп. параметров
+        void AddItemsInfo(string category, string name, string details); //перегрузка метода для тех товаров, у которых есть доп. параметры
 
-        void AddItemsInfo(string category, string name);
+        //метод добавления товара в корзину
+        void AddToCart(string category, string name); //перегрузка метода для тех товаров, у которых нет доп. параметров
+        void AddToCart(string category, string name, string details); //перегрузка метода для тех товаров, у которых есть доп. параметры
 
-        void AddToCart(string category, string name);
-
-        void AddToCart(string category, string name, string details);
-
+        //метод удаления товара из корзины
         void DeleteFromCart(int i);
+
+        //метод расчета стоимости товаров в корзине
         void CountTotalAmount();
+
+        //метод авторизации пользователя 
         bool LoginUser(string login, string password);
 
+        //метод регистрации пользователя
         bool SignUpUser(string name, string login, string password);
 
+        //метод оплаты
         bool Pay(bool useBonuses);
-
-
-
-
-
-
-
-
 
     }
 }

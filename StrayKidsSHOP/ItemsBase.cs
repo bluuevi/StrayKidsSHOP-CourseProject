@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace StrayKidsSHOP
 {
-    sealed class ItemsBase
+    sealed class ItemsBase //класс базы товаров, имеющихся в магазине
     {
+        //ИСПОЛЬЗУЕТСЯ ПАТТЕРН ОДИНОЧКА, БАЗА ТОВАРОВ МОЖЕТ БЫТЬ ТОЛЬКО ОДНА
+        private static ItemsBase itemsBase; //класс хранит в себе объект самого себя, который не может быть изменен
 
-        private static ItemsBase itemsBase;
-
-        internal List<Lightstick> Lightsticks;
-        internal List<Album> Albums;
-        internal List<Card> Cards;
-        internal List<Skzoo> SKZOO;
-        internal List<string> Categories;
-        private ItemsBase()
+        internal List<Lightstick> Lightsticks; //коллекция лайтстиков
+        internal List<Album> Albums; //коллекция альбомов
+        internal List<Card> Cards; //коллекция карточек 
+        internal List<Skzoo> SKZOO; //коллекция игрушек SKZOO
+        internal List<string> Categories; //коллекция названий категорий товаров
+        private ItemsBase() //приватный конструктор, не может быть вызван извне (паттерн одиночка)
         {
 
         }
 
-        public static ItemsBase GetInstance()
+        public static ItemsBase GetInstance() //метод создания объекта базы товаров
         {
-            if (itemsBase == null)
+            if (itemsBase == null) //если база товаров еще не создана
             {
-                itemsBase = new ItemsBase();
+                itemsBase = new ItemsBase(); //создается и заполняется
 
                 itemsBase.Lightsticks = itemsBase.getLightsticks();
                 itemsBase.Albums = itemsBase.getAlbums();
@@ -34,11 +34,12 @@ namespace StrayKidsSHOP
 
                 itemsBase.Categories = itemsBase.getCategories();
             }
-            return itemsBase;
+            return itemsBase; //иначе возврат существующей базы товаров
         }
 
 
-        internal List<string> getCategories()
+        //метод заполнения коллекции названий категорий товаров
+        internal List<string> getCategories() 
         {
             List<string> categories = new List<string>();
             categories.Add("Lightstick");
@@ -47,9 +48,13 @@ namespace StrayKidsSHOP
             categories.Add("SKZOO");
             return categories;
         }
+
+        //метод заполнения коллекции лайтстиков
         internal List<Lightstick> getLightsticks()
         {
             List<Lightstick> lightsticks = new List<Lightstick>();
+
+            //добавление лайтстика в коллекцию
             lightsticks.Add(new Lightstick("Stray Kids OFFICIAL LIGHT STICK", 3270,
                 "It features a “compass without direction” and the words “You make Stray Kids Stay” as a sweet message to Stray Kids’s fans Stays. " +
                 "\nStray Kids official lightstick has three different modes: Normal Mode, activated by pressing the button on the lightstick handle; Central Control Mode, used during performances; Bluetooth Control Mode, controllable via a dedicated application." +
@@ -61,14 +66,16 @@ namespace StrayKidsSHOP
         }
 
 
+        //метод заполнения коллекции альбомов
         internal List<Album> getAlbums()
         {
             List<Album> albums = new List<Album>();
 
+            //добавление альбома в коллекцию
             albums.Add(new Album("5 STAR ★★★★★ VER. A", 2464, "Release Date: June 2, 2023" +
                 "\nContents: \nPhotobook, 1 Type / W164xH224xT10(mm) / 104 Pages \nCD, 1 Type \nPhotocard, W55xH85 / Random 2 of 24 \nCartoon Postcard, 1 Type / W100xH150  \nOOTD Mini Poster, W150xH210 / Random 1 of 8 " +
                 "\nSticker Set, W150xH100 / 2 Sheets", "Albums\\5starA.jpg"));
-
+            //добавление подписанного (с помощью декоратора) альбома в коллекцию
             albums.Add(new SignedAlbum(albums[0]));
 
             albums.Add(new Album("5 STAR ★★★★★ VER. B", 2464, "Release Date: June 2, 2023" +
@@ -110,11 +117,14 @@ namespace StrayKidsSHOP
             return albums;
         }
 
+        //метод заполнения коллекции карточек
         internal List<Card> getCards()
         {
             List<Card> cards = new List<Card>();
-            Card card;
+            Card card; 
+            //создание безличной карточки (она не добавляется в коллекцию)
             card = new Card("Nacific SCHOOL CONCEPT", 180, "Double-sided Lomo card \nDimensions: 5.4 * 8.6cm / 2.13 * 3.39in \nMaterial: coated paper", "Cards\\school.jpg");
+            //создание 8 карточек на которых изображены конкретные люди, на основе созданной выше
             cards = create8cards(cards, card);
 
             card = new Card("Nacific TASTY KITCHEN", 230, "NACIFIC 18th anniversary Official selfie photo card", "Cards\\kitchen.jpg");
@@ -126,9 +136,10 @@ namespace StrayKidsSHOP
             return cards;
         }
 
-
+        //метод создания 8 карт на которых изображены люди с конкретными именами
         internal List<Card> create8cards(List<Card> cards, Card card)
         {
+            //создание 8 карт с помощью декоратора 
             cards.Add(new PersonCard(card, "Bang Chan"));
             cards.Add(new PersonCard(card, "Lee Know"));
             cards.Add(new PersonCard(card, "Changbin"));
@@ -139,11 +150,14 @@ namespace StrayKidsSHOP
             cards.Add(new PersonCard(card, "I.N"));
             return cards;
         }
+
+        //метод заполнения коллекции игрушек SKZOO
         internal List<Skzoo> getSkzoos()
         {
             List<Skzoo> skzoos = new List<Skzoo>();
-
+            //добавление игрушки в оригинальной одежде
             skzoos.Add(new Skzoo("Wolf Chan", 780, "Main material: plush \nSize: about 20cm", "Skzoos\\WolfChan.jpg"));
+            //добавление игрушек с одеждой измененной с помощью декоратора
             skzoos.Add(new SharkSkzoo(skzoos[0], "Skzoos\\WolfChanS.jpg"));
             skzoos.Add(new DinosaurSkzoo(skzoos[0], "Skzoos\\WolfChanD.jpg"));
 

@@ -9,3 +9,7 @@ D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\S
 D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.csproj.CoreCompileInputs.cache
 D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.exe
 D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.pdb
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\bin\Debug\StrayKidsSHOP.exe.manifest
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\bin\Debug\StrayKidsSHOP.application
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.exe.manifest
+D:\гуап\2 курс 2 сем\ТП\STRAY KIDS WORLD DOMINATION\StrayKidsSHOP\StrayKidsSHOP\obj\Debug\StrayKidsSHOP.application
